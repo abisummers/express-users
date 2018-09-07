@@ -1,0 +1,27 @@
+<h2>Log in </h2>
+
+{{> flash_messages}}
+
+
+
+<form action="/process-login" method="POST">
+
+  <label>Email
+    <input type="email" name="email" placeholder="hello@me.com">
+  </label>
+  <br />
+
+  <label>
+    <input type="password" name="originalPassword" placeholder="your secret">
+  </label>
+  <br />
+
+  <button>Submit</button>
+</form>
+
+
+
+<a href="/slack/login">Slack</a>
+<br>
+<a href="/google/login">Google</a>
+<br>

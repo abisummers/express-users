@@ -1,0 +1,15 @@
+<h2>User Settings</h2>
+
+
+<form action="/process-settings" method="POST">
+  <label>
+    <input type="text" name="fullName" value="{{currentUser.fullName}}" placeholder="update your name">
+  </label>
+
+
+  <label for="">
+    <input type="email" name="email" value="{{currentUser.email}}" placeholder="your email address">
+  </label>
+
+  <button>Save settings</button>
+</form>

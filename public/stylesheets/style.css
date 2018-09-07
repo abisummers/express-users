@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00b7ff; }
+
+[class$="-message"] {
+  border: 3px solid;
+  border-radius: 3px;
+  padding: 10px; }
+
+.error-message {
+  color: orange; }
+
+.success-message {
+  color: green; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>{{title}}</h1>
+    <nav>
+      <a href="/">Home</a>
+
+
+      {{#if currentUser}}
+      <b>{{currentUser.email}}</b>
+      <a href="/my-rooms">View rooms</a>
+      <a href="/logout">log Out</a>
+      <a href="settings">Settings</a>
+
+      {{#if currentUser.isAdmin}}
+      {{!-- if admin is a virtual property definied in the model
+      if only takes boolean values in hbs --}}
+      <a href="/admin/users">User Manager</a>
+      {{/if}}
+
+      {{else}}
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Log In</a>
+      {{/if}}
+    </nav>
+  </header>
+
+  {{{body}}}
+
+
+
+  <footer>
+    <p>Made with love ❤️</p>
+  </footer>
+  <script src="/javascripts/script.js"></script>
+</body>
+
+</html>

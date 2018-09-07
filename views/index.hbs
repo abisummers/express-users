@@ -1,0 +1,12 @@
+{{> flash_messages}}
+
+
+<h2>Home Page</h2>
+
+{{#if currentUser}}
+<h3>Welcome Back {{currentUser.fullName}}</h3>
+
+{{else}}
+<p>why don't you make an account?</p>
+<a href="/signup">Sign up here</a>
+{{/if}}

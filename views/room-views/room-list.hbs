@@ -1,0 +1,18 @@
+<h2>My rooms</h2>
+
+{{> flash_messages}}
+
+<a href="/room/add">Add a room</a>
+
+<ul>
+  {{#each roomArray}}
+  <li>
+    <h3>{{this.name}}</h3>
+    <img src="{{this.pictureUrl}}" alt="pic">
+  </li>
+  {{else}}
+  <p>You dont have ant rooms yet</p>
+  <a href="/room/add">Add your first room</a>
+  {{/each}}
+
+</ul>
