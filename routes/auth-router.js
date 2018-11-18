@@ -4,6 +4,8 @@ const User = require("../models/user-model.js");
 const passport = require("passport");
 const router = express.Router();
 
+const { sendSignupMail } = require("../config/nodemailer-setup.js");
+
 //-----------------sign up page --------------------
 router.get("/signup", (req, res, next) => {
   res.render("auth-views/signup-form.hbs");
@@ -16,12 +18,16 @@ router.post("/process-signup", (req, res, next) => {
 
   User.create({ fullName, email, encryptedPassword })
 
-    .then(userDoc => {
+    // .then(userDoc => {
+    // sendSignupMail(userDoc)
+    .then(() => {
       req.flash("success", "SUCCESS😎");
       res.redirect("/");
     })
     .catch(err => next(err));
 });
+//     .catch(err => next(err));
+// });
 
 //----------------login page ------------------
 
@@ -68,7 +74,6 @@ router.get("/logout", (req, res, next) => {
   req.flash("success", "successfully logged out!");
   res.redirect("/");
 });
-module.exports = router;
 
 //-------------------SLACK LOG IN ------------------
 
@@ -86,6 +91,7 @@ router.get(
 
 //------------------------GOOGLE SIGN IN -----------
 
+//will redirect to google for logging in
 router.get(
   "/google/login",
   passport.authenticate("google", {
@@ -96,6 +102,7 @@ router.get(
   })
 );
 
+//where the user gets redirected after accepting the login
 router.get(
   "/google/user-info",
   passport.authenticate("google", {
@@ -105,3 +112,5 @@ router.get(
     failureFlash: "google login failed"
   })
 );
+
+module.exports = router;

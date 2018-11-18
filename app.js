@@ -82,6 +82,7 @@ app.use((req, res, next) => {
   //makes the message accessible insde hbs files as messages
   res.locals.messages = req.flash();
   //needed or the app wont work.
+  // res.locals.currentUser = req.user
   next();
 });
 
