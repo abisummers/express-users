@@ -12,6 +12,10 @@ const userSchema = new Schema(
       match: /^.+@.+\..+$/
     },
     encryptedPassword: { type: String },
+    avatar: {
+      type: String,
+      default: "https://media.giphy.com/media/xULW8DcQMhlZFs6baU/giphy.gif"
+    },
     role: {
       type: String,
       enum: ["normal", "admin"],
